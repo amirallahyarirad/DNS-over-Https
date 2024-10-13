@@ -1,0 +1,12 @@
+stages:
+    - deploy
+
+deploy:
+    stage: deploy
+    script:
+      - cd /opt/coredns
+      - sudo git pull origin main
+      - docker-compose up -d && docker restart coredns
+    tags:
+      - devops-coredns
+
