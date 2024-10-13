@@ -1,0 +1,12 @@
+stages:
+    - deploy
+
+deploy:
+    stage: deploy
+    script:
+      - cd /opt/nginx
+      - sudo git pull origin main
+      - docker-compose up -d
+      - docker exec -it nginx-proxy nginx -t || docker restart nginx-proxy
+    tags:
+      - ZP-Turkey
