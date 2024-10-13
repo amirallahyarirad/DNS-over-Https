@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  coredns:
+    container_name: coredns
+    image: coredns/coredns
+    ports:
+    - "53:53/udp"
+    - "53:53/tcp"
+    restart: unless-stopped
+    volumes:
+    - ./Corefile:/Corefile
+    command: -conf /Corefile
+    networks:
+    - server-network
+
+networks:
+  server-network:
+    driver: bridge
+    name: devops
