@@ -1,7 +1,7 @@
 .:53 {
 
     template ANY A {
-      answer "{{ .Name }} 60 IN A 109.230.196.27"
+      answer "{{ .Name }} 60 IN A [HOST_IP]"
     }
 
 #    template ANY AAAA {
